@@ -1,0 +1,5 @@
+<view>
+  <header type="{{info[`${active}`].state}}"/>
+  <middle type="{{info[`${active}`].state}}" list="{{list}}" info="{{info[`${active}`]}}" ref="middle" onSetActive="onSetActive" />
+  <bottom type="{{info[`${active}`].state}}" info="{{info[`${active}`]}}"/>
+</view>

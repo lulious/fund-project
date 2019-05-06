@@ -1,0 +1,5 @@
+/* 防止image组件父盒子高度多一块白边 */
+image{
+  font-size: 14px;
+  overflow: unset;
+}

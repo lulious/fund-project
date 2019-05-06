@@ -1,0 +1,10 @@
+<view class="bottom_container">
+  <image class="bottom_image" mode="widthFix" src={{imgSrc}} />
+  <view class="fund_container">
+    <text class="fund_name">{{config.fundName}}</text>
+    <text class="slogan">{{config.slogan}}</text>
+    <text class="yield" style="color: {{fontColor}}">{{rate}}</text>
+    <text class="dimension">{{dimension}}</text>
+    <button class="button" size="default" type="primary" onTap="goTo">立即购买</button>
+  </view>
+</view>

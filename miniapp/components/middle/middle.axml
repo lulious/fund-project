@@ -1,0 +1,32 @@
+<view class="container">
+  <image class="middle_image" mode="widthFix" src="{{topImgSrc}}"/>
+  <view class="icon_container">
+    <view class="icon" a:for="{{list}}" a:key="{{index}}">
+      <text class="fund">{{item.title}}</text>
+      <image class="{{active === index ? 'click_icon' : 'no_click_icon'}}" mode="widthFix" src="{{active === index ? item.activeImgSrc: item.imgSrc}}" onTap="handleTap" data-active="{{index}}" />
+    </view>
+  </view>
+  <view class="info">
+    <view class="title">
+      <text class="fund_type">{{list[`${active}`].title.slice(0,2)}}</text>
+      <text class="type">{{list[`${active}`].title.slice(2)}}</text>
+    </view>
+    <view class="label">
+      <image mode="widthFix" src="../../images/title-img.png"/>
+      <text class="label_info">{{config.label}}</text>
+    </view>
+    <text class="time">{{time}}</text>
+  </view>
+</view>
+<view id="week_info" style="background-image: url({{bottomImgSrc}}); background-size: 100% {{height}}">
+  <view class="thisWeek_container">
+    <image class="week_icon" mode="widthFix" src="../../images/benqijiedu-img.png"/>
+    <text class="week_title">{{config.thisWeekTitle}}</text>
+    <text class="week_content">{{config.thisWeekContent}}</text>
+  </view>
+  <view class="nextWeek_container">
+    <image class="week_icon" mode="widthFix" src="../../images/houqizhanwang.png"/>
+    <text class="week_title">{{config.nextWeekTitle}}</text>
+    <text class="week_content">{{config.nextWeekContent}}</text>
+  </view>
+</view>

@@ -1,1 +1,9 @@
-<image class="header_image" mode="widthFix" src="{{imgSrc}}" />
+<view hidden="{{type !== 'attack'}}">
+  <image class="header_image" mode="widthFix" src="../../images/jingong-top.jpg" />
+</view>
+<view hidden="{{type !== 'straddle'}}">
+  <image class="header_image" mode="widthFix" src="../../images/guanwang-top.jpg" />
+</view>
+<view hidden="{{type !== 'guard'}}">
+  <image class="header_image" mode="widthFix" src="../../images/fangshou-top.jpg" />
+</view>

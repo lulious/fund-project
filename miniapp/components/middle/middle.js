@@ -13,7 +13,7 @@ const GUARD_IMG_OBJ = {
 }
 Component({
   data: {
-    topImgSrc: '',
+    // topImgSrc: '',
     bottomImgSrc: '',
     height: '100%',
     active: 0,
@@ -23,20 +23,16 @@ Component({
   didUpdate(prevProps, prevData) {
     const { type, info, list } = this.props;
     const { endDate, startDate } = info;
-    let imgSrc, bottomImgSrc;
+    let bottomImgSrc;
     if (type === 'attack') {
-      imgSrc = '../../images/jingong-middle-1.png';
       bottomImgSrc = '../../images/jingong-middle-2.png';
     } else if (type === 'straddle') {
-      imgSrc = '../../images/guanwang-middle-1.png';
       bottomImgSrc = '../../images/guanwang-middle-2.png';
     } else {
-      imgSrc = '../../images/fangshou-middle-1.png';
       bottomImgSrc = '../../images/fangshou-middle-2.png';
     }
     this.setData({
       config: info,
-      topImgSrc: imgSrc,
       bottomImgSrc: bottomImgSrc,
       time: `${formatDate(startDate)}-${formatDate(endDate)}`
     });

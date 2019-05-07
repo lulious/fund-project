@@ -13,17 +13,24 @@ export const CodeToCN = {
   "qrnh": "七日年化收益率"
 }
 
-export function formatDate(date){
-  const mm = date.slice(4,6);
+export function formatDate(date) {
+  const mm = date.slice(4, 6);
   const dd = date.slice(6);
-  const month = mm.slice(0,1) === '0' ? mm.slice(1) : mm;
-  const day = dd.slice(0,1) === '0' ? dd.slice(1) : dd;
+  const month = mm.slice(0, 1) === '0' ? mm.slice(1) : mm;
+  const day = dd.slice(0, 1) === '0' ? dd.slice(1) : dd;
   return `${month}月${day}日`
 }
-export function formatRate(num){
-  if(num>0){
-    return '+' + num + '%';
+export function formatRate(num, dimension) {
+  let res = num;
+  if (dimension === 'qrnh') {
+    res = res.toFixed(4);
   } else {
-    return  num + '%';
+    res = res.toFixed(2);
   }
+  if (num > 0) {
+    res = '+' + res + '%';
+  } else {
+    res = res + '%';
+  }
+  return res;
 }

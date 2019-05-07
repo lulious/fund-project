@@ -39,7 +39,7 @@ Component({
         dataType: 'json',
         success: (res) => {
           this.setData({
-            rate: formatRate(res.data[`${dimension}`]),
+            rate: formatRate(res.data[`${dimension}`], dimension),
             fontColor: res.data[`${dimension}`] > 0 ? 'rgba(255,82,48,1)' : 'green'
           })
         },

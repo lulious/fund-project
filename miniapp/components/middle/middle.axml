@@ -1,5 +1,13 @@
 <view class="container">
-  <image class="middle_image" mode="widthFix" src="{{topImgSrc}}"/>
+  <view hidden="{{type !== 'attack'}}">
+    <image class="middle_image" mode="widthFix" src="../../images/jingong-middle-1.png"/>
+  </view>
+  <view hidden="{{type !== 'straddle'}}">
+    <image class="middle_image" mode="widthFix" src="../../images/guanwang-middle-1.png"/>
+  </view>
+  <view hidden="{{type !== 'guard'}}">
+    <image class="middle_image" mode="widthFix" src="../../images/fangshou-middle-1.png"/>
+  </view>
   <view class="icon_container">
     <view class="icon" a:for="{{list}}" a:key="{{index}}">
       <text class="fund">{{item.title}}</text>

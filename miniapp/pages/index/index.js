@@ -14,6 +14,10 @@ Page({
           info: this.formatData(res.data.body),
           list: this.formatData(res.data.body).map(item => { return { title: item.title, state: item.state, type: item.type } })
         });
+        // 设置顶部bar标题
+        my.setNavigationBar({
+          title: res.data.body[0].header
+        });
       },
       fail: (res) => {
         console.log('页面信息失败', res);
@@ -54,9 +58,10 @@ Page({
   },
   onShareAppMessage() {
     return {
-      title: '小程序示例',
-      desc: '小程序官方示例 Demo，展示已支持的接口能力及组件。',
-      path: 'page/component/component-pages/view/view?param=123'
+      title: `${this.data.info[0].header}`,
+      desc: `${this.data.info[0].header}`,
+      path: 'page/index/index',
+      bgImgUrl: 'https://gw.alipayobjects.com/os/q/cms/images/jvde59vb/21bf30be-0173-4754-a750-2a176195b0d5_w750_h950.png'
     };
   },
 });

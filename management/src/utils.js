@@ -30,6 +30,7 @@ export const income_options = [{
 ]
 export const init_form =  {
     state: null,
+    attribute: "",
     label: "",
     thisWeekTitle: "",
     thisWeekContent: "",

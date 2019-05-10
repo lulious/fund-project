@@ -1,9 +1,9 @@
-<view hidden="{{type !== 'attack'}}">
-  <image class="header_image" mode="widthFix" src="../../images/jingong-top.jpg" />
+<view class="header_container" hidden="{{type !== 'attack'}}">
+  <image class="header_image"  src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/jingong-top.jpg" onLoad="imageLoad" />
 </view>
-<view hidden="{{type !== 'straddle'}}">
-  <image class="header_image" mode="widthFix" src="../../images/guanwang-top.jpg" />
+<view class="header_container" hidden="{{type !== 'straddle'}}">
+  <image class="header_image"  src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/guanwang-top.jpg" onLoad="imageLoad"/>
 </view>
-<view hidden="{{type !== 'guard'}}">
-  <image class="header_image" mode="widthFix" src="../../images/fangshou-top.jpg" />
+<view class="header_container" hidden="{{type !== 'guard'}}">
+  <image class="header_image"  src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/fangshou-top.jpg" onLoad="imageLoad" />
 </view>

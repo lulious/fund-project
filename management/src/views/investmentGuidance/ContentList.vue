@@ -73,10 +73,10 @@ export default {
       year: "",
       daterange: "",
       header: null,
-      a_fund_form: init_form,
-      bond_fund_form: init_form,
-      hk_fund_form: init_form,
-      us_fund_form: init_form,
+      a_fund_form: Object.assign({},init_form),
+      bond_fund_form: Object.assign({},init_form),
+      hk_fund_form: Object.assign({},init_form),
+      us_fund_form: Object.assign({},init_form),
       a_fund_validate: false,
       bond_fund_validate: false,
       hk_fund_validate: false,
@@ -137,11 +137,9 @@ export default {
         // 删除多余的属性
         delete res.state;
         delete res.updateTime;
-        delete res.attribute;
         delete res.createTime;
         return res;
       });
-      console.log(args);
       myApis.insertCommandPost(args);
     },
     validate(result, type) {

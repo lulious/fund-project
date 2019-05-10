@@ -1,5 +1,15 @@
 /* 防止image组件父盒子高度多一块白边 */
-image{
+
+image {
   font-size: 14px;
   overflow: unset;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

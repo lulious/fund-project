@@ -32,11 +32,28 @@ export default {
     },
     handleDelete(data) {
       myApis.deleteTopic({ periods: data }).then(res => {
+         if(res.data.errCode==="e0000"){
+          this.$message({
+          message: '删除成功',
+          type: 'success'
+        });
+        }else{
+          this.$message.error('接口原因，删除失败');
+        }
         this.getInfo();
       });
     },
     handlePublish(data) {
-      myApis.publishTopic({ periods: data });
+      myApis.publishTopic({ periods: data }).then(res => {
+        if(res.data.errCode==="e0000"){
+          this.$message({
+          message: '发布成功',
+          type: 'success'
+        });
+        }else{
+          this.$message.error('接口原因，发布失败');
+        }
+      });
     },
     handleConfig(data) {
       this.$router.push({

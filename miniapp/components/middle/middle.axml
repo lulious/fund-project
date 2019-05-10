@@ -1,17 +1,17 @@
 <view class="container">
   <view hidden="{{type !== 'attack'}}">
-    <image class="middle_image" mode="widthFix" src="../../images/jingong-middle-1.png"/>
+    <image class="middle_image" src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/jingong-middle-1.jpg"/>
   </view>
   <view hidden="{{type !== 'straddle'}}">
-    <image class="middle_image" mode="widthFix" src="../../images/guanwang-middle-1.png"/>
+    <image class="middle_image"  src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/guanwang-middle-1.jpg"/>
   </view>
   <view hidden="{{type !== 'guard'}}">
-    <image class="middle_image" mode="widthFix" src="../../images/fangshou-middle-1.png"/>
+    <image class="middle_image" src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/fangshou-middle-1.jpg"/>
   </view>
   <view class="icon_container">
     <view class="icon" a:for="{{list}}" a:key="{{index}}">
       <text class="fund">{{item.title}}</text>
-      <image class="{{active === index ? 'click_icon' : 'no_click_icon'}}" mode="widthFix" src="{{active === index ? item.activeImgSrc: item.imgSrc}}" onTap="handleTap" data-active="{{index}}" />
+      <image class="{{active === index ? 'click_icon' : 'no_click_icon'}}" src="{{active === index ? item.activeImgSrc: item.imgSrc}}" onTap="handleTap" data-active="{{index}}" />
     </view>
   </view>
   <view class="info">
@@ -20,7 +20,7 @@
       <text class="type">{{list[`${active}`].title.slice(2)}}</text>
     </view>
     <view class="label">
-      <image mode="widthFix" src="../../images/title-img.png"/>
+      <image mode="widthFix" src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/title-img.png"/>
       <text class="label_info">{{config.label}}</text>
     </view>
     <text class="time">{{time}}</text>
@@ -28,12 +28,12 @@
 </view>
 <view id="week_info" style="background-image: url({{bottomImgSrc}}); background-size: 100% {{height}}">
   <view class="thisWeek_container">
-    <image class="week_icon" mode="widthFix" src="../../images/benqijiedu-img.png"/>
+    <image class="week_icon" mode="widthFix" src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/benqijiedu-img.png"/>
     <text class="week_title">{{config.thisWeekTitle}}</text>
     <text class="week_content">{{config.thisWeekContent}}</text>
   </view>
   <view class="nextWeek_container">
-    <image class="week_icon" mode="widthFix" src="../../images/houqizhanwang.png"/>
+    <image class="week_icon" mode="widthFix" src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/houqizhanwang.png"/>
     <text class="week_title">{{config.nextWeekTitle}}</text>
     <text class="week_content">{{config.nextWeekContent}}</text>
   </view>

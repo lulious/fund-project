@@ -12,11 +12,11 @@ Component({
     const { temp } = this.data;
     let imgSrc;
     if (type === 'attack') {
-      imgSrc = '../../images/jingong-bottom.png';
+      imgSrc = 'https://dollarcdn.cdollar.cn/gffund/zhihuisuo/jingong-bottom.jpg';
     } else if (type === 'straddle') {
-      imgSrc = '../../images/guanwang-bottom.png';
+      imgSrc = 'https://dollarcdn.cdollar.cn/gffund/zhihuisuo/guanwang-bottom.jpg';
     } else {
-      imgSrc = '../../images/fangshou-bottom.png'
+      imgSrc = 'https://dollarcdn.cdollar.cn/gffund/zhihuisuo/fangshou-bottom.jpg'
     }
     const dimension = Object.entries(CodeToCN).filter(item => {
       return item[0] === info.dimension

@@ -7,8 +7,7 @@
       <el-table-column label="服务操作">
         <template slot-scope="scope">
           <el-button type="primary" @click="handleConfig(scope)">内容管理</el-button>
-          <el-button type="warning"  @click="handlePublish(scope)" >点击发布（蚂蚁平台）</el-button>
-          <el-button type="warning">点击发布（APP）</el-button>
+          <el-button type="warning"  @click="handlePublish(scope)" >点击发布</el-button>
           <el-button type="danger"  @click="handleDelete(scope)">删除</el-button>
         </template>
       </el-table-column>

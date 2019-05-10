@@ -27,6 +27,9 @@
           <el-form-item label="股型描述" prop="label">
             <el-input v-model="form.label"/>
           </el-form-item>
+          <el-form-item label="股型标签" prop="attribute">
+            <el-input v-model="form.attribute"/>
+          </el-form-item>
         </div>
         <div class="inline">
           <el-form-item label="本期解读" prop="thisWeekTitle">
@@ -113,6 +116,7 @@ export default {
       income_options: income_options,
       rules: {
         state: [{ required: true, trigger: "change" }],
+        attribute: [{ required: true,  trigger: "blur" }],
         label: [{ required: true,  trigger: "blur" }],
         thisWeekTitle: [
           { required: true,trigger: "blur" }
@@ -147,7 +151,7 @@ export default {
   computed: {
     title: function() {
       const type = this.formatTitle(this.type);
-      const state = this.form.state.label;
+      const state = this.form.state ? this.form.state.label : '';
       return state ? type + state : type;
     }
   },

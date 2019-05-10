@@ -2,7 +2,7 @@ Page({
   data: {
     info: null,
     active: 0,
-    list: null,
+    list: null
   },
   onShow() {
     my.request({

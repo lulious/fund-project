@@ -43,7 +43,7 @@ export default {
         name: "dev",
         token: "dev"
       });
-      this.$router.replace("/home");
+      this.$router.replace("/home/investmentGuidance/TopicList");
       return;
       if (this.checkForm()) {
         _params.userName = this.formData.userName;
@@ -55,7 +55,7 @@ export default {
               token: res.data.token
             });
             this.$message.success("登录成功");
-            this.$router.replace("/home");
+            this.$router.replace("/home/investmentGuidance/TopicList");
           },
           err => {
             this.$message.error(err.message || "登录失败,请联系管理员");

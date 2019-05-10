@@ -1,5 +1,5 @@
 export const GLOBAL_CONFIG = {
-    companyName: '广发基金财经管理平台',
+    companyName: '广发基金财经',
     asideMenu: [
         {
           path: '/home/investmentGuidance', 
@@ -9,11 +9,6 @@ export const GLOBAL_CONFIG = {
               name: '话题管理', 
               path: '/home/investmentGuidance/TopicList',
               filePath: '@/views/investmentGuidance/TopicList.vue', 
-            },
-            {
-              name: '每期内容管理', 
-              path: '/home/investmentGuidance/ContentList',
-              filePath: '@/views/investmentGuidance/ContentList.vue', 
             }
           ]
         }, 
@@ -34,5 +29,5 @@ export default function(Vue, options) {
         return GLOBAL_CONFIG;
       }
     },
-  });
-};
+  })
+}

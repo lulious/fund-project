@@ -1,1 +1,4 @@
 /* required by usingComponents */
+.hidden{
+  display: none;
+}

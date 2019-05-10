@@ -1,15 +1,15 @@
 import { formatDate } from '../../utils';
 const ATTACK_IMG_OBJ = {
-  activeImgSrc: '../../images/jingong-click.png',
-  imgSrc: '../../images/jingong-noclick.png'
+  activeImgSrc: 'https://dollarcdn.cdollar.cn/gffund/zhihuisuo/jingong-click.png',
+  imgSrc: 'https://dollarcdn.cdollar.cn/gffund/zhihuisuo/jingong-noclick.png'
 }
 const STRADDLE_IMG_OBJ = {
-  activeImgSrc: '../../images/guanwang-click.png',
-  imgSrc: '../../images/guanwang-noclick.png'
+  activeImgSrc: 'https://dollarcdn.cdollar.cn/gffund/zhihuisuo/guanwang-click.png',
+  imgSrc: 'https://dollarcdn.cdollar.cn/gffund/zhihuisuo/guanwang-noclick.png'
 }
 const GUARD_IMG_OBJ = {
-  activeImgSrc: '../../images/fangshou-click.jpg',
-  imgSrc: '../../images/fangshou-noclick.png'
+  activeImgSrc: 'https://dollarcdn.cdollar.cn/gffund/zhihuisuo/fangshou-click.png',
+  imgSrc: 'https://dollarcdn.cdollar.cn/gffund/zhihuisuo/fangshou-noclick.png'
 }
 Component({
   data: {
@@ -20,16 +20,17 @@ Component({
     config: null,
     list: null
   },
+
   didUpdate(prevProps, prevData) {
     const { type, info, list } = this.props;
     const { endDate, startDate } = info;
     let bottomImgSrc;
     if (type === 'attack') {
-      bottomImgSrc = '../../images/jingong-middle-2.png';
+      bottomImgSrc = 'https://dollarcdn.cdollar.cn/gffund/zhihuisuo/jingong-middle-2.jpg';
     } else if (type === 'straddle') {
-      bottomImgSrc = '../../images/guanwang-middle-2.png';
+      bottomImgSrc = 'https://dollarcdn.cdollar.cn/gffund/zhihuisuo/guanwang-middle-2.jpg';
     } else {
-      bottomImgSrc = '../../images/fangshou-middle-2.png';
+      bottomImgSrc = 'https://dollarcdn.cdollar.cn/gffund/zhihuisuo/fangshou-middle-2.jpg';
     }
     this.setData({
       config: info,

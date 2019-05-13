@@ -25,7 +25,8 @@
       <div class="right">
         <div class="inline">
           <el-form-item label="股型描述" prop="label">
-            <el-input v-model="form.label"/>
+            <el-input v-model="form.label"  maxlength="14"
+              show-word-limit/>
           </el-form-item>
           <el-form-item label="股型标签" prop="attribute">
             <el-input v-model="form.attribute"/>
@@ -73,7 +74,8 @@
       <span class="product_title">相关产品</span>
       <div class="funds">
         <el-form-item class="inline_label" label="基金名称" label-width="0"  prop="fundName">
-          <el-input v-model="form.fundName" placeholder="请输入基金名称"></el-input>
+          <el-input v-model="form.fundName" placeholder="请输入基金名称"  maxlength="12"
+              show-word-limit></el-input>
         </el-form-item>
         <el-form-item class="inline_label" label="收益类型" label-width="0" prop="dimension">
           <el-select v-model="form.dimension" placeholder="请选择">

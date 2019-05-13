@@ -8,7 +8,6 @@
 .middle_image {
   width: 100%;
   height: 849rpx;
-  /* animation: fadein 0.5s ease-in; */
 }
 
 .icon_container {
@@ -91,10 +90,16 @@
 
 .label {
   width: 603rpx;
+  height: 116rpx;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.label_image{
+  width: 603rpx;
+  height: 116rpx;
 }
 
 .label_info {

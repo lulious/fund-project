@@ -20,7 +20,7 @@
       <text class="type">{{list[`${active}`].title.slice(2)}}</text>
     </view>
     <view class="label">
-      <image mode="widthFix" src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/title-img.png"/>
+      <image class="label_image"  src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/title-img.png"/>
       <text class="label_info">{{config.label}}</text>
     </view>
     <text class="time">{{time}}</text>

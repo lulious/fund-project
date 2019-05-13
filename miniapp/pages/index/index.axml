@@ -3,15 +3,6 @@
   <middle type="{{info[`${active}`].state}}" list="{{list}}" info="{{info[`${active}`]}}" ref="middle" onSetActive="onSetActive" />
   <bottom type="{{info[`${active}`].state}}" info="{{info[`${active}`]}}"/>
 </view>
-<view hidden="true">
-  <image src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/jingong-middle-1.jpg"/>
-</view>
-<view hidden="true">
-  <image src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/fangshou-middle-1.jpg"/>
-</view>
-<view hidden="true">
-  <image src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/guanwang-middle-1.jpg"/>
-</view>
 
 <image class="hidden" src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/jingong-middle-1.jpg"/>
 <image class="hidden" src="https://dollarcdn.cdollar.cn/gffund/zhihuisuo/fangshou-middle-1.jpg"/>

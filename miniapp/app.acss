@@ -1,9 +1,13 @@
 /* 防止image组件父盒子高度多一块白边 */
 
-image {
+/* image {
   font-size: 14px;
   overflow: unset;
-}
+  width:100%;
+  position: absolute;
+  top:0px;
+  bottom:0px;
+} */
 
 @keyframes fadein {
   from {

@@ -1,0 +1,185 @@
+.fund_list_container {
+  width: 651rpx;
+  margin: 20rpx auto;
+  position: relative;
+}
+
+.tab_img {
+  width: 533rpx;
+  height: 77rpx;
+  position: absolute;
+  top: -30rpx;
+  left: -20rpx;
+}
+
+.fund_list_container>.tab_title {
+  position: absolute;
+  top: -20rpx;
+  left: 120rpx;
+  font-size: 40rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0px 4px 5px rgba(24, 78, 167, 0.43);
+}
+
+.yellow {
+  color: #FFF047;
+}
+
+.content_container {
+  width: 651rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 1px 1px 18px 0px rgba(130, 135, 176, 0.36);
+  border-radius: 14rpx;
+  padding-bottom: 22rpx;
+}
+
+.content_container>.tab_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 651rpx;
+  height: 52rpx;
+  padding-top: 64rpx;
+}
+
+.content_container>.tab_container>.tab_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 190rpx;
+  height: 51rpx;
+  box-shadow: 0px 4rpx 7rpx 1rpx rgba(130, 135, 176, 0.2);
+  border-radius: 8rpx;
+  margin: 10rpx;
+}
+
+.triangle_img {
+  width: 38rpx;
+  height: 30rpx;
+  margin: 10rpx 0 -8rpx;
+}
+
+.list_container {
+  width: 576rpx;
+  background-color: #E7F3FE;
+  margin: 0 auto;
+  padding: 20rpx 0 30rpx;
+  box-shadow: -1px 4px 6px 0px rgba(130, 135, 176, 0.24);
+  border-radius: 10rpx;
+}
+
+.list_container>.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 522rpx;
+  height: 73rpx;
+  border: 2rpx dashed rgba(84, 160, 254, 1);
+  border-radius: 2rpx;
+  margin: 0 auto 24rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(26, 35, 94, 1);
+}
+
+.info>.slot {
+  width: 12rpx;
+  height: 12rpx;
+  background: rgba(84, 160, 254, 1);
+  border-radius: 50%;
+  margin: -30rpx 8rpx 0 0;
+}
+
+.info>.text {
+  width: 459rpx;
+  height: 50rpx;
+}
+
+.table_head {
+  display: flex;
+  width: 100%;
+  font-size: 28rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(26, 35, 94, 1);
+  margin-bottom: 20rpx;
+}
+
+.table_head_item:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.table_head_item:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.table_body>.td {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 561rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 4rpx;
+  margin: 0 auto 8rpx;
+  padding: 7rpx 0;
+}
+
+.table_body>.td>.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 249rpx;
+  background: linear-gradient(-23deg, rgba(223, 236, 255, 0.59), rgba(223, 236, 255, 0.37));
+  border-radius: 20rpx;
+  margin-left: 21rpx;
+  position: relative;
+}
+
+.table_body>.td>.left>.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 174rpx;
+  margin-right: 6rpx;
+  padding: 5rpx 20rpx;
+  width: 150px;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+}
+
+.table_body>.td>.left>.go_btn {
+  width: 37rpx;
+  height: 37rpx;
+  position: absolute;
+  right: 0;
+}
+
+.table_body>.td>.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.table_body>.td>.right>.img {
+  width: 37rpx;
+  height: 37rpx;
+  margin-right: 9rpx;
+}
+
+.table_body>.td>.right>.text {
+  font-size: 24rpx;
+  font-family: PingFangSC-Light;
+  font-weight: bold;
+}

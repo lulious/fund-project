@@ -1,0 +1,10 @@
+<view class="container">
+  <image class="header_img" src="../../images/head.png"/>
+  <image a:if="{{!hidden}}" class="introduce_img" src="../../images/introduce.png"/>
+  <fund config="{{config.fundList}}" />
+  <trend fundList="{{fundList}}" />
+  <card config="{{config.recommFund}}" />
+  <view class="bottom_container">
+    <image class="bottom_img" src="../../images/banner.png"/>
+  </view>
+</view>

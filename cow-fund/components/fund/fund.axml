@@ -1,0 +1,33 @@
+<view class="fund_list_container">
+  <image class="tab_img" src="../../images/tab.png" />
+  <text class="tab_title">投资机会<text class="yellow">解读</text></text>
+  <view class="content_container">
+    <view class="tab_container">
+      <text style="background-color: {{active === 0 ? '#62B3FF' : '#F7F7F7'}}" class="tab_button" data-index="0" onTap="changeActive">买卖信号</text>
+      <text style="background-color: {{active === 1 ? '#62B3FF' : '#F7F7F7'}}" class="tab_button" data-index="1" onTap="changeActive">估值水平</text>
+      <text style="background-color: {{active === 2 ? '#62B3FF' : '#F7F7F7'}}" class="tab_button" data-index="2" onTap="changeActive">资金流向</text>
+    </view>
+    <image style="margin-left: {{info.position}}" class="triangle_img" src="../../images/triangle.png" />
+    <view class="list_container">
+      <view class="info">
+        <view class="slot"></view>
+        <text class="text">{{info.title}}</text>
+      </view>
+      <view class="table_head">
+        <text a:for="{{info.head}}" class="table_head_item">{{item}}</text>
+      </view>
+      <view class="table_body">
+        <view class="td" a:for="{{info.list}}">
+          <view class="left">
+            <text class="name">{{item.name}}</text>
+            <image class="go_btn" src="../../images/btn_go.png" />
+          </view>
+          <view class="right">
+            <image class="img" src="{{item.img}}" />
+            <text style="color:{{item.color}}" class="text">{{item.text}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

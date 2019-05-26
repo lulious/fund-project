@@ -1,0 +1,83 @@
+.swiper_container{
+  width: 652rpx;
+  height: 590rpx;
+  margin: 80rpx auto 20rpx;
+  position: relative;
+  
+}
+.swiper {
+  width: 652rpx;
+  height: 590rpx !important;
+}
+
+.trend_container {
+  width: 652rpx;
+  height: 473rpx;
+  position: relative;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 1px 1px 24px 0px rgba(130, 135, 176, 0.36);
+  border-radius: 14rpx;
+  padding-top: 53rpx;
+}
+
+.swiper_container .tab_img {
+  width: 533rpx;
+  height: 77rpx;
+  position: absolute;
+  left: -20rpx;
+  z-index: 1;
+}
+
+.swiper_container>.tab_title {
+  position: absolute;
+  top: -20rpx;
+  left: 70rpx;
+  font-size: 40rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0px 4px 5px rgba(24, 78, 167, 0.43);
+  z-index: 2;
+}
+
+.yellow {
+  color: #FFF047;
+}
+
+.chart_title {
+  display: flex;
+  justify-content: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(26, 35, 94, 1);
+  margin: 0 auto 25rpx;
+}
+
+.trend_container .tab_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 651rpx;
+  height: 52rpx;
+}
+
+.trend_container .tab_container>.tab_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 190rpx;
+  height: 51rpx;
+  box-shadow: 0px 4rpx 7rpx 1rpx rgba(130, 135, 176, 0.2);
+  border-radius: 8rpx;
+  margin: 10rpx;
+}
+
+.chart_container {
+  margin: 0 auto;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}

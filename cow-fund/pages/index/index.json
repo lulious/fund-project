@@ -1,0 +1,7 @@
+{
+   "usingComponents": {
+     "card": "../../components/card/card",
+     "fund": "../../components/fund/fund",
+     "trend": "../../components/trend/trend"
+   }
+}

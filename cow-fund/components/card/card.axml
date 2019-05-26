@@ -1,0 +1,13 @@
+<view class="card_container">
+  <image class="card_image" src="../../images/bg_pc.png" />
+  <view class="fund_container">
+    <text class="fund_name">{{config.cardName}}</text>
+    <text class="desc">{{config.cardDesc}}</text>
+    <view class="tag_container">
+      <text class="tag" a:for="{{config.cardTagList}}">{{item}}</text>
+    </view>
+    <text class="dimension">{{dimension}}</text>
+    <text class="yield" style="color: {{fontColor}}">{{rate}}</text>
+    <view class="button"  onTap="goTo">马上买入</view>
+  </view>
+</view>

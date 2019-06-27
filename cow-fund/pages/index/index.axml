@@ -5,6 +5,6 @@
   <trend fundList="{{fundList}}" />
   <card config="{{config.recommFund}}" />
   <view class="bottom_container">
-    <image class="bottom_img" src="../../images/banner.png"/>
+    <image class="bottom_img" src="../../images/banner.png" onTap="goToHome" />
   </view>
 </view>

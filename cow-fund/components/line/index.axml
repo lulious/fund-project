@@ -1,4 +1,19 @@
 <view class="am-mc-line">
+  <view  class="tooltip-wrapper">
+    <view class="tooltip-title" id="tooltipTitle"></view>
+    <view class="tooltip-content" id="tooltip">
+      <view class="item">
+        <text class="item-marker red" ></text>
+        <text>华夏小牛模拟收益</text>
+        <text a:if="{{show}}" class="item-value" style="color: {{fund.simValue.color}}">{{fund.simValue.value}}</text>
+      </view>
+      <view class="item" style="padding-right: 0;">
+        <text class="item-marker gray"></text>
+        <text>{{fundName}}</text>
+        <text a:if="{{show}}" class="item-value" style="color: {{fund.realValue.color}}">{{fund.realValue.value}}</text>
+      </view>
+    </view>
+  </view>
   <canvas
     id="am-mc-line-{{$id}}"
     height="{{height}}"

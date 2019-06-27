@@ -1,3 +1,33 @@
+import { formatRate } from '../../utils';
+const getData = new Promise(function(resolve, reject) {
+  const data = {
+    simTrendList: [
+      { "fundCode": "000300", "type": "SIMULATE", "day": "20170905", "point": 0.36 },
+      { "fundCode": "000300", "type": "SIMULATE", "day": "20170904", "point": 0.54 },
+      { "fundCode": "000300", "type": "SIMULATE", "day": "20170901", "point": 0.37 },
+      { "fundCode": "000300", "type": "SIMULATE", "day": "20170831", "point": -0.26 },
+      { "fundCode": "000300", "type": "SIMULATE", "day": "20170830", "point": 0.07 },
+      { "fundCode": "000300", "type": "SIMULATE", "day": "20170829", "point": -0.20 },
+      { "fundCode": "000300", "type": "SIMULATE", "day": "20170828", "point": 1.28 },
+      { "fundCode": "000300", "type": "SIMULATE", "day": "20170825", "point": 1.79 },
+      { "fundCode": "000300", "type": "SIMULATE", "day": "20170824", "point": -0.55 },
+      { "fundCode": "000300", "type": "SIMULATE", "day": "20170823", "point": 0.28 }
+    ],
+    realTrendList: [
+      { "fundCode": "000300", "type": "REAL", "day": "20170905", "point": 0.30 },
+      { "fundCode": "000300", "type": "REAL", "day": "20170904", "point": 0.39 },
+      { "fundCode": "000300", "type": "REAL", "day": "20170901", "point": 0.22 },
+      { "fundCode": "000300", "type": "REAL", "day": "20170831", "point": -0.32 },
+      { "fundCode": "000300", "type": "REAL", "day": "20170830", "point": -0.01 },
+      { "fundCode": "000300", "type": "REAL", "day": "20170829", "point": -0.21 },
+      { "fundCode": "000300", "type": "REAL", "day": "20170828", "point": 1.24 },
+      { "fundCode": "000300", "type": "REAL", "day": "20170825", "point": 1.64 },
+      { "fundCode": "000300", "type": "REAL", "day": "20170824", "point": -0.57 },
+      { "fundCode": "000300", "type": "REAL", "day": "20170823", "point": 0.10 }
+    ]
+  };
+  resolve(data)
+})
 Component({
   data: {
     active: 0,
@@ -8,74 +38,61 @@ Component({
     yAxis: {
       tickCount: 5
     },
-    legend: {
-      valueStyle: {
-        fill: '#FE4452', // 文本的颜色
-        fontSize: '12', // 文本大小
-      }
-    },
-    fundList: [{
-      fundCode: '000300',
-      fundName: '沪深300'
-    }],
+    fundList: [],
     simDataList: [],
     realDataList: []
   },
   didUpdate(prevProps, prevData) {
     const fundList = this.props.fundList;
     if (prevProps.fundList === null) {
+      // 先只显示一个
       fundList.forEach(item => {
-        my.request({
-          url: `https://www.mdollar.cn/huaxia-alipay/index/v1/trendList?fundCode=${item.fundCode}`,
-          method: 'GET',
-          dataType: 'json',
-          success: (res) => {
-            let simTrendList, realTrendList;
-            simTrendList = res.data.body.simTrendList;
-            realTrendList = res.data.body.realTrendList;
+        getData.then(res => {
+          let simTrendList, realTrendList;
+          simTrendList = res.simTrendList;
+          realTrendList = res.realTrendList;
 
-            let date = [], simTrendValue = [], realTrendValue = [];
-            simTrendList.forEach(item => {
-              date.push(item.day);
-              simTrendValue.push(item.point);
-            })
-            realTrendList.forEach(item => {
-              realTrendValue.push(item.point);
-            })
+          let date = [], simTrendValue = [], realTrendValue = [];
+          simTrendList.forEach(item => {
+            date.push(item.day);
+            simTrendValue.push(item.point);
+          })
+          realTrendList.forEach(item => {
+            realTrendValue.push(item.point);
+          })
 
-            // 保留近三年的数据
-            const { simDataList, realDataList } = this.data;
-            simDataList.push(simTrendValue);
-            realDataList.push(realTrendValue);
-            this.setData({
-              dateList: date,
-              simDataList: simDataList,
-              realDataList: realDataList
-            })
-            const result = Object.assign({}, item, {
-              categories: date.slice(0, 180),
-              series: [
-                {
-                  type: '华夏小牛模拟收益',
-                  color: '#FE4452',
-                  // style: 'smooth',
-                  data: simTrendValue.slice(0, 180)
-                },
-                {
-                  type: item.fundName,
-                  color: '#B5B5B5',
-                  // style: 'smooth',
-                  data: realTrendValue.slice(0, 180)
-                }
-              ]
-            })
+          // 保留近三年的数据
+          const { simDataList, realDataList } = this.data;
+          simDataList.push(simTrendValue);
+          realDataList.push(realTrendValue);
+          this.setData({
+            dateList: date,
+            simDataList: simDataList,
+            realDataList: realDataList
+          })
+          const result = Object.assign({}, item, {
+            categories: date.slice(0, 180),
+            series: [
+              {
+                type: '华夏小牛模拟收益',
+                color: '#FE4452',
+                // style: 'smooth',
+                data: simTrendValue.slice(0, 180)
+              },
+              {
+                type: item.fundName,
+                color: '#B5B5B5',
+                // style: 'smooth',
+                data: realTrendValue.slice(0, 180)
+              }
+            ]
+          })
 
-            const fundList_data = this.data.fundList;
-            fundList_data.push(result);
-            this.setData({
-              fundList: fundList_data
-            })
-          }
+          const fundList_data = this.data.fundList;
+          fundList_data.push(result);
+          this.setData({
+            fundList: fundList_data
+          })
         })
       })
 

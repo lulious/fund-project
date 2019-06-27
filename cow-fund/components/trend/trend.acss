@@ -71,6 +71,15 @@
   box-shadow: 0px 4rpx 7rpx 1rpx rgba(130, 135, 176, 0.2);
   border-radius: 8rpx;
   margin: 10rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(26, 35, 94, 1);
+  background-color: #F7F7F7;
+}
+.trend_container>.tab_container>.active {
+  color: rgba(255, 255, 255, 1);
+  background-color: #62B3FF;
 }
 
 .chart_container {

@@ -2,7 +2,8 @@
 // import _axios from './index'
 import axios from "axios";
 
-const baseUrl = process.env.NODE_ENV == 'development' ?'https://www.mdollar.cn': 'https://www.cdollar.cn';
+// const baseUrl = process.env.NODE_ENV == 'development' ?'https://www.mdollar.cn': 'https://www.cdollar.cn';
+const baseUrl =  'https://www.mdollar.cn';
 
 /* 创建一个话题 */
 const createTopic = (form) => {

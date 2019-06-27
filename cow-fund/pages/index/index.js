@@ -51,5 +51,10 @@ Page({
       }
     });
 
-  }
+  },
+    goToHome(){
+      my.navigateTo({
+        url:'alipays://platformapi/startapp?appId=60000148&appClearTop=false&startMultApp=YES&showOptionMenu=NO&transparentTitle=auto&transparentTitleTextAuto=YES&url=%2Fwww%2Fshop.html%3Fpid%3D2088801142198792'
+      });
+    }
 });

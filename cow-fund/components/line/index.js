@@ -1,13 +1,13 @@
 import F2 from '@antv/my-f2';
 import util from '../../utils';
 
-function render(chart, props, width, height) {
+function render(chart, props, width, height, context) {
   const { categories, series, xAxis, yAxis, legend } = props;
 
   chart.clear();
 
   let data = [];
-  if(series.length === 1) {
+  if (series.length === 1) {
     data = series[0].data.map((item, i) => {
       return {
         key: categories[i],
@@ -16,7 +16,7 @@ function render(chart, props, width, height) {
       }
     });
   }
-  else if(series.length > 1) {
+  else if (series.length > 1) {
     series.forEach(kind => {
       data = data.concat(kind.data.map((item, i) => {
         return {
@@ -27,43 +27,73 @@ function render(chart, props, width, height) {
       }));
     });
   }
+  context.setData({
+    fundName: series[1].type
+  })
   chart.source(data);
 
-  if(xAxis) {
-    if(xAxis.htAlign) {
+  if (xAxis) {
+    if (xAxis.htAlign) {
       xAxis.label = util.label;
     }
     chart.scale('key', util.scale(xAxis));
     chart.axis('key', util.axis(xAxis));
   }
-  if(yAxis) {
+  if (yAxis) {
     chart.scale('value', util.scale(yAxis));
     chart.axis('value', util.axis(yAxis));
+    chart.axis('value', {
+      label: function label(text) {
+        return {
+          text: text + '%'
+        }
+      }
+    })
   }
   chart.tooltip({
     custom: true, // 自定义 tooltip 内容框
-      onChange: function(obj) {
-        const legend = chart.get('legendController').legends.top[0]; // 获取 legend
-        const tooltipItems = obj.items;
-        const legendItems = legend.items;
-        const map = {};
-        legendItems.map(item => {
-          map[item.name] = F2.Util.mix({}, item);
-        });
-        tooltipItems.map(item => {
-          const { name, value } = item;
-          if (map[name]) {
-            map[name].value = value;
-          }
-        });
-        legend.setItems(Object.values(map));
-      },
-      onHide(tooltip) {
-        const legend = chart.get('legendController').legends.top[0];
-        legend.setItems(chart.getLegendItems().country);
+    onChange: function(obj) {
+      console.log(obj)
+      const tooltipItems = obj.items;
+      let sim = tooltipItems[0].value;
+      let real = tooltipItems[1].value;
+      if (Number(sim) > 0) {
+        sim = {
+          value: '+' + sim + '%',
+          color: '#FF3847'
+        }
+      } else {
+        sim = {
+          value: sim + '%',
+          color: '#01BA7C'
+        }
       }
+      if (Number(real) > 0) {
+        real = {
+          value: '+' + real + '%',
+          color: '#FF3847'
+        }
+      } else {
+        real = {
+          value: real + '%',
+          color: '#01BA7C'
+        }
+      }
+      context.setData({
+        fund: {
+          simValue: sim,
+          realValue: real,
+        },
+        show: true
+      })
+    },
+    onHide(tooltip) {
+      context.setData({
+        show: false
+      })
+    }
   });
-  chart.legend(legend);
+  chart.legend(false);
 
   const style = {};
   series.forEach(kind => {
@@ -74,17 +104,17 @@ function render(chart, props, width, height) {
     color[kind.type] = kind.color;
   });
 
-  if(series.length === 1) {
+  if (series.length === 1) {
     chart.line().position('key*value').color('type', type => {
       return color[type];
     }).shape('type', type => {
       return style[type] || 'line';
     });
-    if(series[0].point) {
+    if (series[0].point) {
       chart.point().position('key*value').style(series[0].point);
     }
   }
-  else if(series.length > 1) {
+  else if (series.length > 1) {
     chart.line().position('key*value').color('type', type => {
       return color[type];
     }).shape('type', type => {
@@ -93,16 +123,16 @@ function render(chart, props, width, height) {
     let pointType = [];
     let pointStyle;
     series.forEach(kind => {
-      if(kind.point) {
+      if (kind.point) {
         pointType.push(kind.type);
         pointStyle = kind.point;
       }
     });
-    if(pointType.length) {
+    if (pointType.length) {
       chart.point().position('key*value').color('type', type => {
         return color[type];
       }).size('type', v => {
-        if(pointType.indexOf(v) === -1) {
+        if (pointType.indexOf(v) === -1) {
           return 0;
         }
       }).style(pointStyle);
@@ -113,6 +143,11 @@ function render(chart, props, width, height) {
 }
 
 Component({
+  data: {
+    fund: null,
+    fundName: null,
+    show: false
+  },
   props: {
     categories: [],
     series: [],
@@ -120,10 +155,10 @@ Component({
       tickCount: 3,
     },
     yAxis: {
-      tickCount: 3,
+      tickCount: 3
     },
     tooltip: false,
-    legend: false,
+    legend: false
   },
   didMount() {
     my.call('getStartupParams', {}, (result) => {
@@ -141,7 +176,7 @@ Component({
       .select(`#${id}`)
       .boundingClientRect()
       .exec(res => {
-        if(!res || !res.length || !res[0]) {
+        if (!res || !res.length || !res[0]) {
           return;
         }
         const { width, height } = res[0];
@@ -160,33 +195,35 @@ Component({
             appendPadding,
           });
 
-          render(this.chart, this.props, width, height);
+          render(this.chart, this.props, width, height, this);
         });
       });
   },
-  didUpdate() {
+  didUpdate(prevProps, prevData) {
     const id = `am-mc-line-${this.$id}`;
     const pixelRatio = this.pixelRatio;
+    if (prevProps !== this.props) {
+      my.createSelectorQuery()
+        .select(`#${id}`)
+        .boundingClientRect()
+        .exec(res => {
+          if (!res || !res.length || !res[0]) {
+            return;
+          }
+          const { width, height } = res[0];
+          if (this.data.width !== width * pixelRatio || this.data.height !== height * pixelRatio) {
+            this.ctx.scale(pixelRatio, pixelRatio);
+          }
 
-    my.createSelectorQuery()
-      .select(`#${id}`)
-      .boundingClientRect()
-      .exec(res => {
-        if(!res || !res.length || !res[0]) {
-          return;
-        }
-        const { width, height } = res[0];
-        if(this.data.width !== width * pixelRatio || this.data.height !== height * pixelRatio) {
-          this.ctx.scale(pixelRatio, pixelRatio);
-        }
-
-        this.setData({
-          width: width * pixelRatio,
-          height: height * pixelRatio,
-        }, () => {
-          render(this.chart, this.props, width, height);
+          this.setData({
+            width: width * pixelRatio,
+            height: height * pixelRatio,
+          }, () => {
+            render(this.chart, this.props, width, height, this);
+          });
         });
-      });
+    }
+
   },
   methods: {
     touchStart(e) {
@@ -203,6 +240,6 @@ Component({
       if (this.canvas) {
         this.canvas.emitEvent('touchend', [e]);
       }
-    },
+    }
   },
 });

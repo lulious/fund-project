@@ -8,6 +8,6 @@
     </view>
     <text class="dimension">{{dimension}}</text>
     <text class="yield" style="color: {{fontColor}}">{{rate}}</text>
-    <view class="button"  onTap="goTo">马上买入</view>
+    <view class="button"  onTap="goTo">马上入手</view>
   </view>
 </view>

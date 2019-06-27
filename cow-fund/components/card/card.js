@@ -35,10 +35,9 @@ Component({
       });
     },
     goTo() {
-      const fundCode = this.data.config.fundCode;
-      my.ap.navigateToFinance({
-        type: 'fundDetail',
-        fundCode: fundCode // 基金代码
+      const config = this.props.config;
+      my.navigateTo({
+        url: config.cardLink
       });
     }
   }
